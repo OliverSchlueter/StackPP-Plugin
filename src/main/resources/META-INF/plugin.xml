@@ -34,5 +34,8 @@
         <lang.syntaxHighlighterFactory
                 language="StackPP"
                 implementationClass="de.oliver.stackppplugin.StackppSyntaxHighlighterFactory"/>
+        <completion.contributor
+                language="StackPP"
+                implementationClass="de.oliver.stackppplugin.StackppCompletionContributor"/>
     </extensions>
 </idea-plugin>
