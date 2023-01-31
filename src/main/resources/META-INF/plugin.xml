@@ -28,5 +28,11 @@
                 fieldName="INSTANCE"
                 language="StackPP"
                 extensions="spp"/>
+        <lang.parserDefinition
+                language="StackPP"
+                implementationClass="de.oliver.stackppplugin.StackppParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+                language="StackPP"
+                implementationClass="de.oliver.stackppplugin.StackppSyntaxHighlighterFactory"/>
     </extensions>
 </idea-plugin>

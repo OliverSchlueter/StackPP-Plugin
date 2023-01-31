@@ -12,11 +12,11 @@ public interface SimpleTypes {
 
   IElementType PROPERTY = new StackppElementType("PROPERTY");
 
+  IElementType ARGUMENT = new StackppTokenType("ARGUMENT");
   IElementType COMMENT = new StackppTokenType("COMMENT");
   IElementType CRLF = new StackppTokenType("CRLF");
-  IElementType KEY = new StackppTokenType("KEY");
+  IElementType IDENTIFIER = new StackppTokenType("IDENTIFIER");
   IElementType SEPARATOR = new StackppTokenType("SEPARATOR");
-  IElementType VALUE = new StackppTokenType("VALUE");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
