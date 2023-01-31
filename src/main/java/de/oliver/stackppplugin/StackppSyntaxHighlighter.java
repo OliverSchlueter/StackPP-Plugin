@@ -44,10 +44,10 @@ public class StackppSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(SimpleTypes.SEPARATOR)) {
             return SEPARATOR_KEYS;
         }
-        if (tokenType.equals(SimpleTypes.IDENTIFIER)) {
+        if (tokenType.equals(SimpleTypes.KEY)) {
             return KEY_KEYS;
         }
-        if (tokenType.equals(SimpleTypes.ARGUMENT)) {
+        if (tokenType.equals(SimpleTypes.VALUE)) {
             return VALUE_KEYS;
         }
         if (tokenType.equals(SimpleTypes.COMMENT)) {

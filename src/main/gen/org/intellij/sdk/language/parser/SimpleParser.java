@@ -47,50 +47,41 @@ public class SimpleParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // IDENTIFIER? (SEPARATOR ARGUMENT?)*
+  // (KEY? SEPARATOR VALUE?) | KEY
   public static boolean property(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property")) return false;
+    if (!nextTokenIs(b, "<property>", KEY, SEPARATOR)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, PROPERTY, "<property>");
     r = property_0(b, l + 1);
-    r = r && property_1(b, l + 1);
+    if (!r) r = consumeToken(b, KEY);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
-  // IDENTIFIER?
+  // KEY? SEPARATOR VALUE?
   private static boolean property_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "property_0")) return false;
-    consumeToken(b, IDENTIFIER);
-    return true;
-  }
-
-  // (SEPARATOR ARGUMENT?)*
-  private static boolean property_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "property_1")) return false;
-    while (true) {
-      int c = current_position_(b);
-      if (!property_1_0(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "property_1", c)) break;
-    }
-    return true;
-  }
-
-  // SEPARATOR ARGUMENT?
-  private static boolean property_1_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "property_1_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, SEPARATOR);
-    r = r && property_1_0_1(b, l + 1);
+    r = property_0_0(b, l + 1);
+    r = r && consumeToken(b, SEPARATOR);
+    r = r && property_0_2(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
 
-  // ARGUMENT?
-  private static boolean property_1_0_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "property_1_0_1")) return false;
-    consumeToken(b, ARGUMENT);
+  // KEY?
+  private static boolean property_0_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "property_0_0")) return false;
+    consumeToken(b, KEY);
+    return true;
+  }
+
+  // VALUE?
+  private static boolean property_0_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "property_0_2")) return false;
+    consumeToken(b, VALUE);
     return true;
   }
 
