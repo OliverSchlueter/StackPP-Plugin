@@ -35,6 +35,6 @@ public class StackppFileType extends LanguageFileType {
 
     @Override
     public Icon getIcon() {
-        return AllIcons.Idea_logo_welcome;
+        return AllIcons.FileTypes.Json;
     }
 }
