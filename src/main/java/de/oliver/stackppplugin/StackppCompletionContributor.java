@@ -68,6 +68,9 @@ public class StackppCompletionContributor extends CompletionContributor {
                         resultSet.addElement(LookupElementBuilder.create("syscall").withTailText(" <val>").withTypeText("execute a system-call"));
                         resultSet.addElement(LookupElementBuilder.create("str").withTailText(" <string>").withTypeText("puts the string in memory"));
                         resultSet.addElement(LookupElementBuilder.create("throw").withTailText(" <val>").withTypeText("throws an exception"));
+                        resultSet.addElement(LookupElementBuilder.create("inc").withTailText(" <reg>").withTypeText("increments the value by one"));
+                        resultSet.addElement(LookupElementBuilder.create("dec").withTailText(" <reg>").withTypeText("decrements the value by one"));
+                        resultSet.addElement(LookupElementBuilder.create("nop").withTypeText("no operation"));
                 }
         });
     }
